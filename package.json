@@ -1,18 +1,21 @@
 {
-  "name": "nip",
-  "description": "Node Input/output Piping",
+  "name": "lip",
+  "description": "Node Input/output Piping for LiveScript",
   "version": "1.0.2",
-  "author": "Moshe Kolodny <kolodny.github@gmail.com>",
+  "author": [
+    "Moshe Kolodny <kolodny.github@gmail.com>",
+    "jigsaw (http://jgs.me)"
+  ],
   "repository": {
     "type": "git",
-    "url": "https://github.com/kolodny/nip/issues"
+    "url": "https://github.com/e-jigsaw/lip/issues"
   },
   "dependencies": {
     "commander": "^2.8.1",
     "split": "^0.3.3"
   },
   "bin": {
-    "nip": "./bin/nip"
+    "lip": "./bin/lip"
   },
   "keywords": [
     "cli",
@@ -23,9 +26,9 @@
     "awk"
   ],
   "bugs": {
-    "url": "https://github.com/kolodny/nip/issues"
+    "url": "https://github.com/e-jigsaw/lip/issues"
   },
-  "homepage": "https://github.com/kolodny/nip#readme",
+  "homepage": "https://github.com/e-jigsaw/lip",
   "main": "index.js",
   "devDependencies": {
     "coveralls": "^2.11.2",
