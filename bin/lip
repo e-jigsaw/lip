@@ -4,6 +4,7 @@ var nip = require('..');
 var fs = require('fs');
 var path = require('path');
 var program = require('commander');
+var lsc = require('LiveScript');
 
 program
   .version(require('../package.json').version)
@@ -45,15 +46,16 @@ if (!files.length) {
   files.push('-');
 }
 
-var callback;
+var callback, compile_result;
 try {
-  if (/^\s*return\b/.test(callbackStr)) {
-    callback = Function('return function(line, index, cols, lines) {' + callbackStr + '}')();
-  } else if (/^\s*function\b/.test(callbackStr)) {
-    callback = Function('return ' + callbackStr)();
-  } else {
-    callback = Function(callbackStr)();
-  }
+  compile_result = lsc.compile(callbackStr, {bare: true});
+} catch (e) {
+  console.log(e);
+  return 1;
+}
+
+try {
+  callback = new Function(['line', 'index', 'cols', 'lines'], compile_result);
 } catch (e) {
   console.log(callbackStr)
   console.error("coudn't build callback function", e);
@@ -74,4 +76,3 @@ nip({
   lineSeparator: program.lineJoiner,
   firstLineOnly: program.firstLineOnly
 });
-
