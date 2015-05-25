@@ -1,7 +1,7 @@
 {
-  "name": "lip",
+  "name": "@jigsaw/lip",
   "description": "Node Input/output Piping for LiveScript",
-  "version": "1.0.2",
+  "version": "1.1.0",
   "author": [
     "Moshe Kolodny <kolodny.github@gmail.com>",
     "jigsaw (http://jgs.me)"
